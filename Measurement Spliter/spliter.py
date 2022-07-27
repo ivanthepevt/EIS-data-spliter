@@ -34,7 +34,7 @@ wb_new = Workbook()
 for ws in wb.worksheets:
     F0 = ws["A21"].value
     timer = 0
-    ws_0 = wb_new.create_sheet(ws.title + " " + str(timer)*timer)
+    ws_0 = wb_new.create_sheet(ws.title)
     current_row_0 = 1
     for row in ws.values:
 
@@ -45,8 +45,8 @@ for ws in wb.worksheets:
 
         if row[0] == F0:
             timer += 1
-            ws_0.cell(row=current_row_0 - 1, column=11).value = indicator[0] + str(timer) + indicator[1]
-            ws_new = wb_new.create_sheet(ws.title + " " + str(timer))
+            ws_0.cell(row=current_row_0 - 1, column=11).value = indicator[0] + str(timer-1) + indicator[1]
+            ws_new = wb_new.create_sheet(ws.title + " " + str(timer - 1))
             for col, val in enumerate(label_row, start=1):
                 ws_new.cell(row=1, column=col).value = val
             #print(row)
